@@ -6,7 +6,7 @@ The idea is to use these files as a remote repository and use them to install al
 
 ```
 $ mkdir scripts
-$ git remote add pstools https://github.com/Gearlux/PSTools.git
+$ git submodule add https://github.com/Gearlux/PSTools.git
 ```
 
 To clone your repository use
