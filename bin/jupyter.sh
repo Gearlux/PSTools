@@ -1,4 +1,5 @@
 #!/bin/sh
-source ../venv/bin/activate
-cd ../python
+dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+source $dir/../venv/bin/activate
+cd $dir/../python
 jupyter notebook
