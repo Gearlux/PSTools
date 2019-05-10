@@ -20,19 +20,19 @@ function Invoke-OS {
 Function Install-Python {
     Set-Location $PSScriptRoot
 
-    if (-Not (Test-Path (Join-Path $PSScriptRoot ../venv))) {
+    if (-Not (Test-Path (Join-Path $PSScriptRoot ../../venv))) {
         if ($IsMacOS) {
-            python3 -m venv ../venv
-            Copy-Item (Join-Path $PSScriptRoot mac activate.ps1) ../venv/bin/
+            python3 -m venv ../../venv
+            Copy-Item (Join-Path $PSScriptRoot mac activate.ps1) ../../venv/bin/
         }
         else {
-            python -m venv ../venv
+            python -m venv ../../venv
         }
     }
     if ($IsMacOS) {
-        . ../venv/bin/activate.ps1
+        . ../../venv/bin/activate.ps1
     } else {
-        . ..\venv\Scripts\Activate.ps1
+        . ..\..\venv\Scripts\Activate.ps1
     }
     
 }
@@ -52,4 +52,7 @@ Function PipInstall {
     {
       Write-Host $Pattern " installed"
     }
+    New-Item -Path ../.. -Name bin -ItemType "directory" -Force
+    Get-ChildItem bin -Filter "$Pattern.*" | Copy-Item -Destination ../../bin 
+
 }
