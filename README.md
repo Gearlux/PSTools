@@ -14,3 +14,6 @@ To clone your repository use
 $ git clone --recurse-submodules <your repo> 
 $ git submodule update --remote
 ```
+
+# Related
+https://github.com/Liquidmantis/PSCondaEnvs
